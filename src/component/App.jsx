@@ -2,8 +2,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      App.js相当于是一个普通的component组件
-      index.js相当于是主要的js相当于vue中的main.js
+      该项目主要运用的react是基于17.0.2版本的
     </div>
   );
 }
