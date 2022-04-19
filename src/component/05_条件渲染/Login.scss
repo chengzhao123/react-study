@@ -1,0 +1,15 @@
+.loginForm {
+    width: 500px;
+    height: 400px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: lightblue;
+    margin: 50px auto;
+    padding: 10px 20px;
+    .submitArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
