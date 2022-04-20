@@ -7,9 +7,12 @@
     background-color: lightblue;
     margin: 50px auto;
     padding: 10px 20px;
-    .submitArea {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .loginTitle {
+        text-align: center;
+        margin: 20px 0 40px 0;
+        .loginTitleName {
+            font-size: 32px;
+            font-weight: bolder;
+        }
     }
 }

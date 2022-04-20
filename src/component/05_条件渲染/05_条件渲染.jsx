@@ -6,6 +6,7 @@ import './Login.scss'
 import { Button, Divider } from 'antd'
 
 class App extends Component {
+    loginRef = React.createRef()
     constructor(props) {
         super(props)
         this.state = {
@@ -16,29 +17,54 @@ class App extends Component {
         this.setState({
             isLoginStatus: 1
         })
+        console.log(this.loginRef.current.getFieldsValue())
     }
     handleRegister = () => {
-        this.setState({
-            isLoginStatus: 2
-        })
+        const { isLoginStatus } = this.state
+        if(isLoginStatus === 2) {
+            this.setState({
+                isLoginStatus: 1
+            })
+        } else {
+            this.setState({
+                isLoginStatus: 2
+            })
+        }
     }
     handleForget = () => {
-        this.setState({
-            isLoginStatus: 3
-        })
+        const { isLoginStatus } = this.state
+        if(isLoginStatus === 3) {
+            this.setState({
+                isLoginStatus: 1
+            })
+        } else {
+            this.setState({
+                isLoginStatus: 3
+            })
+        }
     }
+
     render() {
         const { isLoginStatus } = this.state
         return (
             <div className='loginForm'>
+                <div className='loginTitle'>
+                    <span className='loginTitleName'>后台管理系统</span>
+                </div>
                 {
-                    isLoginStatus === 1 ? <Login /> : isLoginStatus === 2 ? <Register /> : <Forget />
+                    isLoginStatus === 1 ? <Login refForm={this.loginRef}/> : isLoginStatus === 2 ? <Register refForm={this.loginRef}/> : <Forget refForm={this.loginRef}/>
                 }
-                <Button type='primary' size='large' block onClick={this.handleLogin}>登录</Button>
+                <Button type='primary' size='large' block onClick={this.handleLogin}>
+                    {isLoginStatus === 1 ? '登录' : isLoginStatus === 2 ? '注册' : '确认'}
+                </Button>
                 <div style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
-                    <span style={{ 'cursor': 'pointer' }} onClick={this.handleRegister}>去注册</span>
+                    <span style={{ 'cursor': 'pointer' }} onClick={this.handleRegister}>
+                        {isLoginStatus !== 2 ? '去注册' : '上一步'}
+                    </span>
                     <Divider type="vertical" />
-                    <span style={{ 'cursor': 'pointer' }} onClick={this.handleForget}>忘记密码</span>
+                    <span style={{ 'cursor': 'pointer' }} onClick={this.handleForget}>
+                        {isLoginStatus !== 3 ? '忘记密码' : '上一步'}
+                    </span>
                 </div>
             </div>
         )
