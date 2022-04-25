@@ -1,18 +1,45 @@
 import React, { Component } from 'react'
-class App extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
+import PropTypes from 'prop-types'
 
-        }
+class NavBar extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
     }
     static defaultProps = {
-        name: '123123123'
+        navbarList: ''
+    }
+    static propTypes = {
+        navbarList: PropTypes.array
     }
     render() {
-        return(
+        let { navbarList } = this.props
+        return (
             <div>
-                123
+                {
+                    navbarList.map((item, index) => {
+                        return <div key={index}>{item}</div>
+                    })
+                }
+            </div>
+        )
+    }
+}
+class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            navbarList: []
+        }
+    }
+    static getDerivedStateFromProps(nextProps, nextState) {
+        console.log('getDerivedStateFromProps', nextProps, nextState)
+    }
+    render() {
+        let { navbarList } = this.state;
+        return (
+            <div>
+                <NavBar navbarList={navbarList} />
             </div>
         )
     }
