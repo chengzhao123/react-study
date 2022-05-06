@@ -29,11 +29,12 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            navbarList: []
+            navbarList: [123]
         }
     }
     static getDerivedStateFromProps(nextProps, nextState) {
         console.log('getDerivedStateFromProps', nextProps, nextState)
+        return true
     }
     render() {
         let { navbarList } = this.state;

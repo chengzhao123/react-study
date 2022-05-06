@@ -10,8 +10,8 @@ import 'antd/dist/antd.min.css';
 // import App from './component/05_条件渲染/05_条件渲染.jsx';
 // import App from './component/06_列表和键/06_列表和键.jsx';
 // import App from './component/07_hook用法/07_hook用法.jsx';
-import App from './component/08_defaultProps/08_defaultProps.jsx';
-
+// import App from './component/08_defaultProps/08_defaultProps.jsx';
+import Parent from './component/HomePage/index.jsx'
 ReactDOM.render(
   <React.StrictMode>
     {/* 01_类组件和函数组件 <App name="这是App页面的参数"/> */}
@@ -21,8 +21,8 @@ ReactDOM.render(
     {/* 05_条件渲染 <App/> */}
     {/* 06_列表和键 <App/> */}
     {/* 07_hook用法 <App count={100}/> */}
-    {/* 08_defaultProps */}
-    <App/>
+    {/* 08_defaultProps <App/> */}
+    <Parent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
