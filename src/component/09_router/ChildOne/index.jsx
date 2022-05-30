@@ -1,34 +1,42 @@
 import React, { Component } from 'react'
-
+import { Form, Input, InputNumber } from 'antd';
 class ChildOne extends Component {
     constructor(props) {
         super(props)
-        this.state={
-            name: '',
-            age: ''
+        this.state = {
+            bookName: '',
+            price: ''
         }
     }
-    changeName = (e) => {
-        this.setState({
-            name: e.target.value
-        })
-    }
-    changeAge = (e) => {
-        this.setState({
-            age: e.target.value
-        })
-    }
-    handleClick = (e) => {
-        console.log(this.state.name, this.state.age)
-    }
+    form = Form.createRef()
     render() {
-        let { name, age} = this.state
-        return(
+        let { bookName, price } = this.state
+        return (
             <div>
                 <h1>这是一个table表格</h1>
-                <input type="text" value={name} onChange={this.changeName}/>
-                <input type="number" value={age} onChange={this.changeAge}/>
-                <button onClick={this.handleClick}>确认</button>
+                <Form
+                    ref={this.form}
+                >
+                    <Form.Item
+                    label="名称"
+                    name={bookName}>
+                        <Input
+                            placeholder="请输入书籍名称"
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        label="价格"
+                        name={price}
+                    >
+                        <InputNumber
+                            placeholder="请输入价格"
+                            defaultValue="1"
+                            min="0"
+                            max="10000"
+                            step="1"
+                        />
+                    </Form.Item>
+                </Form>
             </div>
         )
     }

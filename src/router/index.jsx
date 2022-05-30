@@ -10,6 +10,7 @@ class Router extends Component {
     render() {
         return (
             <BrowserRouter>
+            <h2 style={{textAlign: 'center'}}>react 17.0.2,react-router-dom 6.3.0版本</h2>
                 <div className="routerDiv">
                     <NavLink className={({isActive}) => isActive ? 'routerActive': ''} to='/one'>
                         <span className="routerChild">one</span>
