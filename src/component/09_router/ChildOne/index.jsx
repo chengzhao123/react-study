@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Input, InputNumber } from 'antd';
+
 class ChildOne extends Component {
     constructor(props) {
         super(props)
@@ -8,35 +8,27 @@ class ChildOne extends Component {
             price: ''
         }
     }
-    form = Form.createRef()
+    handleChangeName = (e) => {
+        this.setState({
+            bookName: e.target.value
+        })
+    }
+    handleChangePrice = (e) => {
+        this.setState({
+            price: e.target.value
+        })
+    }
     render() {
         let { bookName, price } = this.state
         return (
             <div>
                 <h1>这是一个table表格</h1>
-                <Form
-                    ref={this.form}
-                >
-                    <Form.Item
-                    label="名称"
-                    name={bookName}>
-                        <Input
-                            placeholder="请输入书籍名称"
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        label="价格"
-                        name={price}
-                    >
-                        <InputNumber
-                            placeholder="请输入价格"
-                            defaultValue="1"
-                            min="0"
-                            max="10000"
-                            step="1"
-                        />
-                    </Form.Item>
-                </Form>
+                <div>书籍名称：
+                    <input value={bookName} onChange={(e) =>this.handleChangeName(e)} />
+                </div>
+                <div>书籍价格：
+                    <input value={price} onChange={(e) =>this.handleChangePrice(e)} />
+                </div>
             </div>
         )
     }
