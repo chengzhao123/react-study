@@ -12,10 +12,10 @@ class Router extends Component {
             <BrowserRouter>
             <h2 style={{textAlign: 'center'}}>react 17.0.2,react-router-dom 6.3.0版本</h2>
                 <div className="routerDiv">
-                    <NavLink className={({isActive}) => isActive ? 'routerActive': ''} to='/one'>
+                    <NavLink exact="true" className={({isActive}) => isActive ? 'routerActive': ''} to='/one'>
                         <span className="routerChild">one</span>
                     </NavLink>
-                    <NavLink className={({isActive}) => isActive ? 'routerActive': ''} to='/two'>
+                    <NavLink exact="true" className={({isActive}) => isActive ? 'routerActive': ''} to='/two'>
                         <span className="routerChild">two</span>
                     </NavLink>
                 </div>
