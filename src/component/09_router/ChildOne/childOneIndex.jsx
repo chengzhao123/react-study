@@ -12,8 +12,11 @@ class ChildOneIndex extends Component{
         return null
     }
     render() {
+        let { info } = this.props
         return (
-            <div>asd</div>
+            <div>{info.map((item, index) => {
+                return <div key={index}>书籍名称:{item.name}</div>
+            })}</div>
         )
     }
 }
