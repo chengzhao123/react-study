@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import store from "../../../store/store"
-import { addAction, removeAction} from '../../../store/aciton'
+// import { addAction, removeAction} from '../../../store/aciton'
 class ChildOneIndex extends Component{
     constructor(props) {
         super(props)
@@ -24,8 +24,10 @@ class ChildOneIndex extends Component{
       })
     }
     handleAddStoreCount = () => {
-      store.dispatch(addAction(100))
-      console.log('success', store.getState())
+      store.dispatch({type: 'ADD_COUNT', count: 100})
+    }
+    handleRemoveStoreCount = () => {
+      store.dispatch({type: 'REMOVE_COUNT', count: 100})
     }
     componentWillUnmount() {
       store.unsubscribe()
@@ -40,6 +42,7 @@ class ChildOneIndex extends Component{
             })}</div>
             <div>当前store存储的count是{count}</div>
             <button onClick={() => this.handleAddStoreCount()}>增加count</button>
+            <button onClick={() => this.handleRemoveStoreCount()}>减少count</button>
           </div>
             
         )
