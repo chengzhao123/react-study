@@ -1,18 +1,20 @@
-// import { ADD_COUNT, REMOVE_COUNT } from "./contant";
+import { ADD_COUNT, REMOVE_COUNT } from "./contant";
 //定义一个初始状态
 let initialState = {
-  count: 100
+  bookList: []
 }
 //利用reducer将store和action串联起来
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_COUNT':
+    case ADD_COUNT:
       return {
-        count: state.count + action.count
+        bookList: [...state.bookList, action.payload]
       }
-    case 'REMOVE_COUNT':
+    case REMOVE_COUNT:
       return {
-        count: state.count - action.count
+        bookList: state.bookList.filter(item => {
+          return item.bookName !== action.payload.bookName
+        })
       }
     default:
       return state

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import '@/style/common.scss'
+import { Provider } from 'react-redux';
+import store from './store/store';
 // import App from './component/01_类组件和函数组件/01_类组件和函数组件.jsx';
 // import App from './component/02_组件和道具/02_组件和道具.jsx';
 // import App from './component/03_状态和生命周期/03_状态和生命周期_1.jsx';
@@ -21,7 +23,9 @@ ReactDOM.render(
     {/* 06_列表和键 <App/> */}
     {/* 07_hook用法 <App count={100}/> */}
     {/* 08_defaultProps <App/> */}
-    <Router/>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
