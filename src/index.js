@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import '@/style/common.scss'
 import { Provider } from 'react-redux';
-import store from './store/store';
+// import store from './store/store';
+import { legacy_createStore as createStore, applyMiddleware } from 'redux'
+import reducer from './store/reducer'
+import Router from './router/index.jsx'
+const store = createStore(reducer,applyMiddleware())
 // import App from './component/01_类组件和函数组件/01_类组件和函数组件.jsx';
 // import App from './component/02_组件和道具/02_组件和道具.jsx';
 // import App from './component/03_状态和生命周期/03_状态和生命周期_1.jsx';
@@ -12,7 +16,6 @@ import store from './store/store';
 // import App from './component/06_列表和键/06_列表和键.jsx';
 // import App from './component/07_hook用法/07_hook用法.jsx';
 // import App from './component/08_defaultProps/08_defaultProps.jsx';
-import Router from './router/index.jsx'
 ReactDOM.render(
   <React.StrictMode>
     {/* 01_类组件和函数组件 <App name="这是App页面的参数"/> */}
